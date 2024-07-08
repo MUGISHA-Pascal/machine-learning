@@ -37,3 +37,17 @@
 # names=["mugisha","pascal","daddy"]
 # listofstrings=[f"hello {name}" for name in names]
 # print(listofstrings)
+
+# generating a list of vowels in a string
+# string="pasu,ical"
+# vowels=[char for char in string  if char in ["a","e","u","i","o"]]
+# print(vowels)
+
+# capitaling the first letter in a string
+# string="this is a string"
+# capitalized=[stri.capitalize() for stri in string.split(" ")]
+# print(" ".join(capitalized))
+
+# list for multiplication table lists
+# multilist=[[num*multp  for num in range(1,11) ] for multp in range(1,11)]
+# print(multilist)
