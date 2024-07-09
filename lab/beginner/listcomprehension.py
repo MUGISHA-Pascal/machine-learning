@@ -51,3 +51,52 @@
 # list for multiplication table lists
 # multilist=[[num*multp  for num in range(1,11) ] for multp in range(1,11)]
 # print(multilist)
+
+# generating a dictionary from a list
+# listo=[1,2,4,5,7]
+# dicto={num for num in listo}
+# print(dicto)
+
+# generating a key value dictionary
+# keyvalue=[("key","value"),("key2","value2"),("key3","value3")]
+# keydict={key : value for key,value in keyvalue}
+# print(keydict)
+
+# flattening a list into a single list
+# twodlist=[[1,2,3],[4,5,6]]
+# onedlist=[num for sublist in twodlist for num in sublist]
+# print(onedlist)
+
+# Filter based on multiple conditions(even>5)
+# numbers=[1,2,3,4,5,6,7,8,9,10]
+# filtered=[num for num in numbers if num % 2 ==0 and num >5]
+# print(filtered)
+
+# Prime number generation
+# def isprime(n):
+#     return n > 1 and all( n % i != 0 for i in range(2,int(n ** 0.5)+1))
+# limit=10
+# primenumbers=[num for num in range(1,limit+1) if isprime(num)]
+
+# products generation
+# products = [
+#     {"name": "Shirt", "price": 15.00, "in_stock": True},
+#     {"name": "Hat", "price": 7.50, "in_stock": False},
+#     {"name": "Socks", "price": 8.00, "in_stock": True},
+#     {"name": "sweater", "price": 20.00, "in_stock": True},
+# ]
+
+# newlist=[objecti for objecti in products if objecti["name"].startswith("S") and objecti["price"]>10 and objecti["in_stock"]==True]
+# print(newlist)
+
+# conditional dictionary generation
+# words = ["listen", "silent", "boat", "table", "eat", "ate"]
+# casedict={key:key.capitalize() for key in words }
+
+# anagram program
+# words = ["listen", "silent", "boat", "table", "eat", "ate"]
+# disowords=["listen","boat","eat"]
+# def sort_word(w):
+#     return " ".join(sorted(w)) 
+# anagram_group={key:[word for word in words if sorted(word) == sorted(key)] for key in disowords  }
+# print(anagram_group)
