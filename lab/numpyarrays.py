@@ -78,18 +78,42 @@
 
 # finding dtype
 # print(np.dtype(str))
-import scipy.misc
-import matplotlib.pyplot as plt
-lena = scipy.misc.lena()
-acopy = lena.copy()
-aview = lena.view()
-plt.subplot(221)
-plt.imshow(lena)
-plt.subplot(222)
-plt.imshow(acopy)
-plt.subplot(223)
-plt.imshow(aview)
-aview.flat = 0
-plt.subplot(224)
-plt.imshow(aview)
-plt.show()
+
+# to list method
+# import numpy as np
+# a=np.arange(5)
+# print(a.tolist())
+
+# flat method
+# import numpy as np
+# a=np.arange(5)
+# print(a.flat)
+# for value in a.flat:
+#     print(value)
+    
+# flatten method
+# print(a.flatten())
+
+# # creating views and copies
+# import numpy as np
+# a=np.arange(5)
+# b=a.view()
+# # print(b)
+# c=a.copy()
+# b[0]=3
+# # print(a)
+# # print(b)
+# # print(c)
+# c[3]=5
+# print(a)
+
+# # fancy indexing
+# import numpy as np
+# a=np.array([[1,2,3],[4,5,6]])
+# rows=np.array([0,1])
+# cols=np.array([2])
+# b=a[rows,cols]
+# print(b)
+
+import pandas as pd
+
