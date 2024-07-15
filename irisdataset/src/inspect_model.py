@@ -1,5 +1,8 @@
 import joblib
+import matplotlib.pyplot as plt
 from sklearn.ensemble import RandomForestClassifier
+from sklearn.tree import plot_tree, export_graphviz
+import graphviz
 
 # Load the trained model
 model = joblib.load('../models/iris_model.joblib')
@@ -20,3 +23,13 @@ if isinstance(model, RandomForestClassifier):
     print("\nFirst tree details:")
     tree = model.estimators_[0]
     print(tree)
+
+    # Visualize the first tree
+    plt.figure(figsize=(10, 10))
+    plot_tree(tree, filled=True, feature_names=['sepal length', 'sepal width', 'petal length', 'petal width'])
+    plt.show()
+
+    # Alternatively, export the tree in DOT format and render using graphviz
+    dot_data = export_graphviz(tree, out_file=None, filled=True, feature_names=['sepal length', 'sepal width', 'petal length', 'petal width'])
+    graph = graphviz.Source(dot_data)
+    graph.render("first_tree")
