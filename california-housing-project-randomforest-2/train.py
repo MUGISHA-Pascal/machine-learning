@@ -4,6 +4,7 @@ from sklearn.metrics import accuracy_score,confusion_matrix,classification_repor
 from sklearn.model_selection import train_test_split
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.preprocessing import StandardScaler
+import matplotlib.pyplot as plt
 
 california = fetch_california_housing()
 data = pd.DataFrame(california.data,columns=california.feature_names)
@@ -33,3 +34,15 @@ print(f"confusion matrix : {conf}")
 
 clas=classification_report(y_test,y_pred)
 print(f"classification report : {clas}")
+
+
+# Plot the feature importances
+feature_importances = model.feature_importances_
+features = california.feature_names
+
+plt.figure(figsize=(10, 6))
+plt.barh(features, feature_importances, color='skyblue')
+plt.xlabel('Feature Importance')
+plt.ylabel('Feature')
+plt.title('Feature Importances from RandomForestClassifier')
+plt.show()

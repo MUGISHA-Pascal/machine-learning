@@ -5,6 +5,7 @@ from sklearn.preprocessing import StandardScaler
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.metrics import accuracy_score,classification_report,confusion_matrix
 import numpy as np
+import matplotlib.pyplot as plt
 
 california = fetch_california_housing()
 data=pd.DataFrame(california.data,columns=california.feature_names)
@@ -41,3 +42,12 @@ print(classification_report(y_test,y_pred))
 
 print("confusion matrix : ")
 print(confusion_matrix(y_test,y_pred))
+
+features = california.feature_names
+feature_importance=model.feature_importances_
+plt.figure(figsize=(10,6))
+plt.barh(features,feature_importance,color="skyblue")
+plt.xlabel("feature importances")
+plt.ylabel("features")
+plt.title("graph")
+plt.show()
