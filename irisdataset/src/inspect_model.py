@@ -30,6 +30,6 @@ if isinstance(model, RandomForestClassifier):
     plt.show()
 
     # Alternatively, export the tree in DOT format and render using graphviz
-    dot_data = export_graphviz(tree, out_file=None, filled=True, feature_names=['sepal length', 'sepal width', 'petal length', 'petal width'])
-    graph = graphviz.Source(dot_data)
-    graph.render("first_tree")
+    # dot_data = export_graphviz(tree, out_file=None, filled=True, feature_names=['sepal length', 'sepal width', 'petal length', 'petal width'])
+    # graph = graphviz.Source(dot_data)
+    # graph.render("first_tree")
