@@ -3,23 +3,40 @@ const bodyParser = require("body-parser");
 const axios = require("axios");
 
 const app = express();
+const port = 3000;
 
-app.use(express.json());
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
+
+// Serve static files from the 'public' directory
 app.use(express.static("public"));
 
+// Endpoint to handle predictions
 app.post("/predict", async (req, res) => {
-  const input_data = req.body.data;
+  const inputData = req.body.data;
   try {
-    const response = await axios.post("http://locahost:4000/predict", {
-      data: input_data,
+    console.log(`Sending data to Flask server: ${inputData}`);
+    const response = await axios.post("http://127.0.0.1:5000/predict", {
+      data: inputData,
     });
-    res.json({ prediction: response.data.prediction });
-    console.log(`${response.data.prediction}`);
+    const prediction = response.data.prediction;
+    res.redirect(`/result?prediction=${prediction}`);
   } catch (error) {
-    console.log(`the error is ${error}`);
+    console.error(`Error in /predict endpoint: ${error.message}`);
+    res.status(500).send("Error in fetching prediction");
   }
 });
 
-app.listen(3000, () => {
-  console.log(`app is running on http://localhost:3000`);
+// Endpoint to serve result page
+app.get("/result", (req, res) => {
+  const prediction = req.query.prediction;
+  res.send(`
+        <h1>Prediction Result</h1>
+        <p>Prediction: ${prediction}</p>
+        <a href="/">Go back</a>
+    `);
+});
+
+app.listen(port, () => {
+  console.log(`Server running at http://localhost:${port}/`);
 });
