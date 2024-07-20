@@ -6,7 +6,7 @@ app=Flask(__name__)
 def predict():
     data=request.json
     features=data["features"]
-    model=joblib.load("./iris-dataset")
+    model=joblib.load("./iris-dataset/model/iris.joblib")
     prediction=model.predict([features])
     return jsonify({"prediction":prediction.toList()})
 
