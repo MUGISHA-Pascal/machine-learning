@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>predict into an irisdataset</title>
+  </head>
+  <body>
+    <script>
+      async function sendData() {
+        const features = [
+          parseFloat(document.getElementById("sepal length").valeue),
+          parseFloat(document.getElementById("sepal width").valeue),
+          parseFloat(document.getElementById("petal length").valeue),
+          parseFloat(document.getElementById("petal width").valeue),
+        ];
+        const request = await fetch("/prediction", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ features }),
+        });
+        const result = await request.json();
+        document.getElementById("results").textContent =
+          "prediction : " + result.prediction;
+      }
+    </script>
+    <h1>Enter the specie's features</h1>
+    <form>
+      <label for="sepal length">sepal length : </label>
+      <input
+        type="number"
+        id="sepal length"
+        step="0.01"
+        required
+        placeholder="enter the sepal length"
+      />
+      <label for="sepal width">sepal width : </label>
+      <input
+        type="number"
+        id="sepal width"
+        step="0.01"
+        required
+        placeholder="enter the sepal width"
+      />
+      <label for="petal length">petal length : </label>
+      <input
+        type="number"
+        id="petal length"
+        step="0.01"
+        required
+        placeholder="enter the petal length"
+      />
+      <label for="petal width">petal width : </label>
+      <input
+        type="number"
+        id="petal width"
+        step="0.01"
+        required
+        placeholder="enter the petal width"
+      />
+      <br />
+      <button onclick="sendData()">Send features</button>
+    </form>
+    <div id="results"></div>
+  </body>
+</html>
