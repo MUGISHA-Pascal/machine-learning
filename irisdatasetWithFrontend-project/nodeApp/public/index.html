@@ -4,65 +4,61 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>predict into an irisdataset</title>
-  </head>
-  <body>
     <script>
       async function sendData() {
         const features = [
-          parseFloat(document.getElementById("sepal length").valeue),
-          parseFloat(document.getElementById("sepal width").valeue),
-          parseFloat(document.getElementById("petal length").valeue),
-          parseFloat(document.getElementById("petal width").valeue),
+          parseFloat(document.getElementById("sepallength").value),
+          parseFloat(document.getElementById("sepalwidth").value),
+          parseFloat(document.getElementById("petallength").value),
+          parseFloat(document.getElementById("petalwidth").value),
         ];
-        const request = await fetch("/prediction", {
+        const response = await fetch("/prediction", {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
           },
           body: JSON.stringify({ features }),
         });
-        const result = await request.json();
-        document.getElementById("results").textContent =
+        const result = await response.json();
+        document.getElementById("result").textContent =
           "prediction : " + result.prediction;
       }
     </script>
+  </head>
+  <body>
     <h1>Enter the specie's features</h1>
-    <form>
-      <label for="sepal length">sepal length : </label>
-      <input
-        type="number"
-        id="sepal length"
-        step="0.01"
-        required
-        placeholder="enter the sepal length"
-      />
-      <label for="sepal width">sepal width : </label>
-      <input
-        type="number"
-        id="sepal width"
-        step="0.01"
-        required
-        placeholder="enter the sepal width"
-      />
-      <label for="petal length">petal length : </label>
-      <input
-        type="number"
-        id="petal length"
-        step="0.01"
-        required
-        placeholder="enter the petal length"
-      />
-      <label for="petal width">petal width : </label>
-      <input
-        type="number"
-        id="petal width"
-        step="0.01"
-        required
-        placeholder="enter the petal width"
-      />
-      <br />
-      <button onclick="sendData()">Send features</button>
-    </form>
-    <div id="results"></div>
+
+    <label for="sepallength">sepal length : </label>
+    <input
+      type="number"
+      id="sepallength"
+      step="0.01"
+      placeholder="enter the sepal length"
+    />
+    <label for="sepalwidth">sepal width : </label>
+    <input
+      type="number"
+      id="sepalwidth"
+      step="0.01"
+      placeholder="enter the sepal width"
+    />
+    <label for="petallength">petal length : </label>
+    <input
+      type="number"
+      id="petallength"
+      step="0.01"
+      placeholder="enter the petal length"
+    />
+    <label for="petalwidth">petal width : </label>
+    <input
+      type="number"
+      id="petalwidth"
+      step="0.01"
+      placeholder="enter the petal width"
+    />
+    <br />
+    <button onclick="sendData()">Send features</button>
+
+    <p id="result"></p>
   </body>
 </html>
