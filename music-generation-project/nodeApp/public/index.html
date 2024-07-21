@@ -7,8 +7,8 @@
     <script>
       async function sendData() {
         features = [
-          parseInt(document.getElementById("gender")),
           parseInt(document.getElementById("age")),
+          parseInt(document.getElementById("gender")),
         ];
         const response = await fetch("/prediction", {
           method: "POST",
