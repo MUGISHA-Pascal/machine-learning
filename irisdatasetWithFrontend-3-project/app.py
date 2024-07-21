@@ -9,7 +9,7 @@ def predict():
     features=data["features"]
     feature_names=["sepal_length","sepal_width","petal_length","petal_width"]
     input_data=pd.DataFrame([features],columns=feature_names)
-    model=joblib.load("./iris-dataset/model/iris.joblib")
+    model=joblib.load("./iris-dataset/model/ir.joblib")
     prediction=model.predict(input_data)
     return jsonify({"prediction":prediction.tolist()})
 if __name__=="__main__":
