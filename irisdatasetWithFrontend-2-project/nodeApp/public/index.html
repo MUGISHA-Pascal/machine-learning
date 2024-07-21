@@ -15,15 +15,14 @@
 
         const response = await fetch("/send-to-flask", {
           method: "POST",
-          headers: {
-            "Content-Type": "application/json",
+             "Content-Type": "application/json",
           },
           body: JSON.stringify({ features }),
         });
 
         const result = await response.json();
         document.getElementById("result").textContent =
-          "Prediction: " + result.prediction;
+           "Prediction: " + result.prediction;
       }
     </script>
   </head>
