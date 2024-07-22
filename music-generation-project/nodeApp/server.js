@@ -11,6 +11,7 @@ app.post("/prediction", async (req, res) => {
       features: req.body.features,
     });
     res.json(response.data);
+    console.log(req.body.features);
     console.log(response.data.prediction);
   } catch (error) {
     console.log(`the error : ${error}`);

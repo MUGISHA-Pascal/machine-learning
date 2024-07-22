@@ -7,8 +7,8 @@
     <script>
       async function sendData() {
         features = [
-          parseInt(document.getElementById("age")),
-          parseInt(document.getElementById("gender")),
+          parseInt(document.getElementById("age").value),
+          parseInt(document.getElementById("gender").value),
         ];
         const response = await fetch("/prediction", {
           method: "POST",
@@ -32,7 +32,7 @@
     <input
       type="number"
       id="gender"
-      placeholder="enter the gende (1 or 0)"
+      placeholder="enter the gender (1 or 0)"
       step="1"
     />
     <br />

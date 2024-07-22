@@ -10,7 +10,8 @@ def predict():
     feature_name=["age","gender"]
     input_data=pd.DataFrame([features],columns=feature_name)
     model=joblib.load("./model/music.joblib")
+    print(features)
     prediction=model.predict(input_data)
     return jsonify({"prediction":prediction.tolist()})
 if __name__=="__main__":
-    app.run(port=5000)
+    app.run(port=5000,debug=True)
