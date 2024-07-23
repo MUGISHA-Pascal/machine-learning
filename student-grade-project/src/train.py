@@ -11,6 +11,8 @@ y=data["G3"]
 x_train,x_test,y_train,y_test=train_test_split(x,y,test_size=0.1)
 model=LinearRegression()
 model.fit(x_train,y_train)
+with open("../model/student.pickle","wb") as f:
+    pickle.dump(model,f)
 y_pred=model.predict(x_test)
 accuracy=model.score(x_test,y_test)
 m2=mean_squared_error(y_test,y_pred)
