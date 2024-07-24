@@ -25,5 +25,6 @@ plt.scatter(y_test,y_pred)
 plt.xlabel("x features")
 plt.ylabel("y features")
 plt.title("the analysis")
+plt.plot([min(y_test), max(y_test)], [min(y_test), max(y_test)], color='red')
 plt.show()
 
