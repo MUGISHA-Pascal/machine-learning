@@ -10,7 +10,8 @@ def predict():
     features=data["features"]
     input_data=pd.DataFrame([features],columns=["mean radius","mean texture"])
     prediction=model.predict(input_data)
-    return JSON.jsonify({prediction.tolist()})
+    # prediction=model.predict([features])
+    return jsonify({"prediction":prediction.tolist()})
 
 if __name__ == "__main__":
     app.run(port=5000,debug=True)

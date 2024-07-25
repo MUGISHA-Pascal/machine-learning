@@ -4,8 +4,27 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>breast cancer prediction project</title>
+    <script>
+      async function sendData() {
+        features = [
+          parseFloat(document.getElementById("meanradius").value),
+          parseFloat(document.getElementById("meantexture").value),
+        ];
+        const response = await fetch("/prediction", {
+          method: "post",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ features }),
+        });
+        const result = await response.json();
+        document.getElementById("result").textContent =
+          "prediction : " + result.prediction;
+      }
+    </script>
   </head>
   <body>
+    <h2>Enter the features for the breast cancer project</h2>
     <label for="meanradius">mean radius : </label>
     <input
       type="number"
@@ -13,6 +32,7 @@
       step="10.1"
       id="meanradius"
     />
+    <br />
     <label for="meantexture">mean texture : </label>
     <input
       type="number"
@@ -20,6 +40,9 @@
       step="10.1"
       id="meantexture"
     />
-    <button onclick="sendData">Send features</button>
+    <br />
+    <button onclick="sendData()">Send features</button>
+    <br />
+    <p id="result"></p>
   </body>
 </html>
