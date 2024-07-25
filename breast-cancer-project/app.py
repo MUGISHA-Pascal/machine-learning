@@ -8,9 +8,9 @@ def predict():
     model=joblib.load("./model/cancer.joblib")
     data=request.json
     features=data["features"]
-    input_data=pd.DataFrame([features],columns=[""])
+    input_data=pd.DataFrame([features],columns=["mean radius","mean texture"])
     prediction=model.predict(input_data)
     return JSON.jsonify({prediction.tolist()})
 
-if __nama__ == "__main__":
+if __name__ == "__main__":
     app.run(port=5000,debug=True)

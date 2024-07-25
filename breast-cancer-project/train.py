@@ -8,6 +8,7 @@ import matplotlib.pyplot as plt
 
 data_bunch = load_breast_cancer()
 data = pd.DataFrame(data_bunch.data, columns=data_bunch.feature_names)
+data=data[["mean radius","mean texture","worst fractal dimension"]]
 x=data.drop("worst fractal dimension",axis=1)
 y=data["worst fractal dimension"]
 
