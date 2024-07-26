@@ -7,7 +7,6 @@ app.use(bodyParser.json());
 
 app.post("/prediction", async (req, res) => {
   try {
-    // console.log(req.body.features);
     const response = await axios.post("http://localhost:5000/predict", {
       features: req.body.features,
     });
