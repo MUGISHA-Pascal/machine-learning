@@ -23,4 +23,3 @@ plot_tree(model,feature_names=data_bunch.feature_names,filled=True)
 # plt.scatter(y_test,y_pred,color="red")
 plt.title("prediction")
 plt.show()
-
