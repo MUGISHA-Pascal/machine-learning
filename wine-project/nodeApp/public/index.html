@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>wine project</title>
+    <script>
+      async function sendData() {
+        features = [
+          parseFloat(document.getElementById("alcohol").value),
+          parseFloat(document.getElementById("malic_acid").value),
+          parseFloat(document.getElementById("ash").value),
+          parseFloat(document.getElementById("alcalinity_of_ash").value),
+          parseFloat(document.getElementById("magnesium").value),
+          parseFloat(document.getElementById("total_phenols").value),
+          parseFloat(document.getElementById("flavanoids").value),
+          parseFloat(document.getElementById("nonflavanoid_phenols").value),
+          parseFloat(document.getElementById("proanthocyanins").value),
+          parseFloat(document.getElementById("color_intensity").value),
+          parseFloat(document.getElementById("hue").value),
+          parseFloat(
+            document.getElementById("od280/od315_of_diluted_wines").value
+          ),
+          parseFloat(document.getElementById("proline").value),
+        ];
+        const response = await fetch("/prediction", {
+          method: "post",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ features }),
+        });
+        const result = await response.json();
+        document.getElementById("result").textContent =
+          "prediction : " + result.prediction;
+      }
+    </script>
+  </head>
+  <body>
+    <h1>Enter the features for the wine class</h1>
+    <label for="alcohol">alcohol : </label>
+    <input
+      type="number"
+      id="alcohol"
+      placeholder="enter the alcohol"
+    /><br /><br />
+    <label for="malic_acid">malic_acid:</label>
+    <input
+      type="number"
+      id="malic_acid"
+      placeholder="enter the malic_acid"
+    /><br /><br />
+    <label for="ash">ash :</label>
+    <input type="number" id="ash" placeholder="enter the ash" /><br /><br />
+    <label for="alcalinity_of_ash">alcalinity_of_ash :</label>
+    <input
+      type="number"
+      id="alcalinity_of_ash"
+      placeholder="enter the alcalinity_of_ash"
+    /><br /><br />
+    <label for="magnesium">magnesium :</label>
+    <input
+      type="number"
+      id="magnesium"
+      placeholder="enter the magnesium"
+    /><br /><br />
+    <label for="total_phenols">total_phenols :</label>
+    <input
+      type="number"
+      id="total_phenols"
+      placeholder="enter the total_phenols"
+    /><br /><br />
+    <label for="flavanoids">flavanoids : </label>
+    <input
+      type="number"
+      id="flavanoids"
+      placeholder="enter the flavanoids"
+    /><br /><br />
+    <label for="nonflavanoid_phenols">nonflavanoid_phenols :</label>
+    <input
+      type="number"
+      id="nonflavanoid_phenols"
+      placeholder="enter the nonflavanoid_phenols"
+    /><br /><br />
+    <label for="proanthocyanins">proanthocyanins : </label>
+    <input
+      type="number"
+      id="proanthocyanins"
+      placeholder="enter the proanthocyanins"
+    /><br /><br />
+    <label for="color_intensity"></label>
+    <input
+      type="number"
+      id="color_intensity"
+      placeholder="enter the color_intensity"
+    /><br /><br />
+    <label for="hue">hue :</label>
+    <input type="number" id="hue" placeholder="enter the hue" /><br /><br />
+    <label for="od280/od315_of_diluted_wines"
+      >od280/od315_of_diluted_wines :</label
+    >
+    <input
+      type="number"
+      id="od280/od315_of_diluted_wines"
+      placeholder="enter the od280/od315_of_diluted_wines"
+    /><br /><br />
+    <label for="proline">proline :</label>
+    <input
+      type="number"
+      id="proline"
+      placeholder="enter the proline"
+    /><br /><br />
+    <button onclick="sendData()">Send features</button>
+    <br />
+    <br />
+    <p id="result"></p>
+  </body>
+</html>
