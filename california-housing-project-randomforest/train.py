@@ -44,7 +44,7 @@ print("confusion matrix : ")
 print(confusion_matrix(y_test,y_pred))
 
 features = california.feature_names
-feature_importance 1= model.feature_importances_
+feature_importance = model.feature_importances_
 plt.figure(figsize=(10,6))
 plt.barh(features,feature_importance,color="skyblue")
 plt.xlabel("feature importances")
