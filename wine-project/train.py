@@ -4,7 +4,7 @@ import joblib
 from sklearn.metrics import accuracy_score
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.model_selection import train_test_split
-from sklearn.tree import plot_tree
+from sklearn.tree import plot_tree,DecisionTreeClassifier
 import matplotlib.pyplot as plt
 
 data_bunch=load_wine()
@@ -17,6 +17,6 @@ model.fit(x_train,y_train)
 y_pred=model.predict(x_test)
 accuracy=accuracy_score(y_test,y_pred)
 print(f"accuracy is {accuracy}")
-plt.figure(figsize=(10,6))
-plot_tree(model,feature_names=data_bunch.feature_names,class_names=data_bunch.target_names,filled=True)
-plt.show()
+# plt.figure(figsize=(10,6))
+# plot_tree(model,feature_names=data_bunch.feature_names,class_names=data_bunch.target_names,filled=True)
+# plt.show()
