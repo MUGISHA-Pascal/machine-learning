@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>diabetes project</title>
+    <script>
+      async function sendData() {
+        features = [
+          parseFloat(document.getElementById("age").value),
+          parseFloat(document.getElementById("sex").value),
+          parseFloat(document.getElementById("bmi").value),
+          parseFloat(document.getElementById("bp").value),
+          parseFloat(document.getElementById("s1").value),
+          parseFloat(document.getElementById("s2").value),
+          parseFloat(document.getElementById("s3").value),
+          parseFloat(document.getElementById("s4").value),
+          parseFloat(document.getElementById("s5").value),
+          parseFloat(document.getElementById("s6").value),
+        ];
+        const response = await fetch("/prediction", {
+          method: "post",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ features }),
+        });
+        const result = await response.json();
+        document.getElementById("result").textContent =
+          "prediction : " + result.prediction;
+      }
+    </script>
+  </head>
+  <body>
+    <h2>measure diabetes level</h2>
+    <label for="age">age : </label>
+    <input type="number" id="age" placeholder="enter the age" />
+    <label for="sex">sex : </label>
+    <input type="number" id="sex" placeholder="enter the sex" />
+    <label for="bmi">bmi : </label>
+    <input type="number" id="bmi" placeholder="enter the bmi" />
+    <label for="bp">bp : </label>
+    <input type="number" id="bp" placeholder="enter the bp" />
+    <label for="s1">s1 : </label>
+    <input type="number" id="s1" placeholder="enter the s1" />
+    <label for="s2">s2 : </label>
+    <input type="number" id="s2" placeholder="enter the s2" />
+    <label for="s3">s3 : </label>
+    <input type="number" id="s3" placeholder="enter the s3" />
+    <label for="s4">s4 : </label>
+    <input type="number" id="s4" placeholder="enter the s4" />
+    <label for="s5">s5 : </label>
+    <input type="number" id="s5" placeholder="enter the s5" />
+    <label for="s6">s6 : </label>
+    <input type="number" id="s6" placeholder="enter the s6" />
+    <button onclick="sendData()">Send features</button>
+  </body>
+</html>
