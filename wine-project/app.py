@@ -10,7 +10,7 @@ def predict():
     data=request.json
     databunch=load_wine()
     features=data["features"]
-    input_data=pd.DataFrame([features],column=databunch.feature_names)
+    input_data=pd.DataFrame([features],columns=databunch.feature_names)
     model=joblib.load("./model/wine.joblib")
     prediction=model.predict(input_data)
     return  jsonify({"prediction":prediction.tolist()})
