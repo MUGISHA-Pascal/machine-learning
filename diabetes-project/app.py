@@ -3,7 +3,7 @@ import joblib
 import pandas as pd
 
 app=Flask(__name__)
-@app.route("/predict",method=["POST"])
+@app.route("/predict",methods=["POST"])
 def predict():
     model=joblib.load("./model/diabetes.joblib")
     data=request.json
