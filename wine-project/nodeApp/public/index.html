@@ -40,106 +40,149 @@
   </head>
   <body>
     <h1
-      class="text-red-800 text-4xl font-bold border-b-4 border-red-800 pb-7 pt-6 pl-3"
+      class="text-red-800 text-4xl mb-5 font-bold border-b-4 border-red-800 pb-7 pt-6 pl-3"
     >
       Enter the features for the wine class
     </h1>
-    <label for="alcohol">alcohol : </label>
-    <input
-      type="number"
-      id="alcohol"
-      placeholder="enter the alcohol"
-      step="10.12"
-    /><br /><br />
-    <label for="malic_acid">malic_acid:</label>
-    <input
-      type="number"
-      id="malic_acid"
-      placeholder="enter the malic_acid"
-      step="10.12"
-    /><br /><br />
-    <label for="ash">ash :</label>
-    <input
-      type="number"
-      id="ash"
-      placeholder="enter the ash"
-      step="10.12"
-    /><br /><br />
-    <label for="alcalinity_of_ash">alcalinity_of_ash :</label>
-    <input
-      type="number"
-      id="alcalinity_of_ash"
-      placeholder="enter the alcalinity_of_ash"
-      step="10.12"
-    /><br /><br />
-    <label for="magnesium">magnesium :</label>
-    <input
-      type="number"
-      id="magnesium"
-      placeholder="enter the magnesium"
-      step="10.12"
-    /><br /><br />
-    <label for="total_phenols">total_phenols :</label>
-    <input
-      type="number"
-      id="total_phenols"
-      placeholder="enter the total_phenols"
-      step="10.12"
-    /><br /><br />
-    <label for="flavanoids">flavanoids : </label>
-    <input
-      type="number"
-      id="flavanoids"
-      placeholder="enter the flavanoids"
-      step="10.12"
-    /><br /><br />
-    <label for="nonflavanoid_phenols">nonflavanoid_phenols :</label>
-    <input
-      type="number"
-      id="nonflavanoid_phenols"
-      placeholder="enter the nonflavanoid_phenols"
-      step="10.12"
-    /><br /><br />
-    <label for="proanthocyanins">proanthocyanins : </label>
-    <input
-      type="number"
-      id="proanthocyanins"
-      placeholder="enter the proanthocyanins"
-      step="10.12"
-    /><br /><br />
-    <label for="color_intensity">color_intensity</label>
-    <input
-      type="number"
-      id="color_intensity"
-      placeholder="enter the color_intensity"
-      step="10.12"
-    /><br /><br />
-    <label for="hue">hue :</label>
-    <input
-      type="number"
-      id="hue"
-      placeholder="enter the hue"
-      step="10.12"
-    /><br /><br />
-    <label for="od280/od315_of_diluted_wines"
-      >od280/od315_of_diluted_wines :</label
-    >
-    <input
-      type="number"
-      id="od280/od315_of_diluted_wines"
-      placeholder="enter the od280/od315_of_diluted_wines"
-      step="10.12"
-    /><br /><br />
-    <label for="proline">proline :</label>
-    <input
-      type="number"
-      id="proline"
-      placeholder="enter the proline"
-      step="10.12"
-    /><br /><br />
-    <button onclick="sendData()">Send features</button>
+    <div class="flex flex-row justify-center items-center bg-red-50 space-x-24">
+      <div class="">
+        <p class="font-bold text-xl ml-3 display:block">alcohol :</p>
+        <input
+          class="border border-gray-900 rounded-full p-3 w-96 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-800 display:block"
+          type="number"
+          id="alcohol"
+          placeholder="enter the alcohol"
+          step="10.12"
+        /><br /><br />
+        <p for="malic_acid" class="font-bold text-xl ml-3">malic_acid:</p>
+        <input
+          type="number"
+          class="border border-gray-900 rounded-full p-3 w-96 ml-3 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-800"
+          id="malic_acid"
+          placeholder="enter the malic_acid"
+          step="10.12"
+        /><br /><br />
+        <p for="ash" class="font-bold text-xl ml-3">ash :</p>
+        <input
+          type="number"
+          class="border border-gray-900 rounded-full p-3 w-96 ml-3 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-800"
+          id="ash"
+          placeholder="enter the ash"
+          step="10.12"
+        /><br /><br />
+        <p for="alcalinity_of_ash" class="font-bold text-xl ml-3">
+          alcalinity_of_ash :
+        </p>
+        <input
+          type="number"
+          class="border border-gray-900 rounded-full p-3 w-96 ml-3 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-800"
+          id="alcalinity_of_ash"
+          placeholder="enter the alcalinity_of_ash"
+          step="10.12"
+        /><br /><br />
+        <p for="magnesium" class="font-bold text-xl ml-3">magnesium :</p>
+        <input
+          type="number"
+          id="magnesium"
+          class="border border-gray-900 rounded-full p-3 w-96 ml-3 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-800"
+          placeholder="enter the magnesium"
+          step="10.12"
+        /><br /><br />
+        <p for="total_phenols" class="font-bold text-xl ml-3">
+          total_phenols :
+        </p>
+        <input
+          type="number"
+          id="total_phenols"
+          class="border border-gray-900 rounded-full p-3 w-96 ml-3 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-800"
+          placeholder="enter the total_phenols"
+          step="10.12"
+        /><br /><br />
+      </div>
+      <div class="">
+        <p for="flavanoids" class="font-bold text-xl ml-3">flavanoids :</p>
+        <input
+          type="number"
+          id="flavanoids"
+          class="border border-gray-900 rounded-full p-3 w-96 ml-3 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-800"
+          placeholder="enter the flavanoids"
+          step="10.12"
+        /><br /><br />
+        <p for="nonflavanoid_phenols" class="font-bold text-xl ml-3">
+          nonflavanoid_phenols :
+        </p>
+        <input
+          type="number"
+          class="border border-gray-900 rounded-full p-3 w-96 ml-3 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-800"
+          id="nonflavanoid_phenols"
+          placeholder="enter the nonflavanoid_phenols"
+          step="10.12"
+        /><br /><br />
+        <p for="proanthocyanins" class="font-bold text-xl ml-3">
+          proanthocyanins :
+        </p>
+        <input
+          type="number"
+          id="proanthocyanins"
+          class="border border-gray-900 rounded-full p-3 w-96 ml-3 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-800"
+          placeholder="enter the proanthocyanins"
+          step="10.12"
+        /><br /><br />
+        <p for="color_intensity" class="font-bold text-xl ml-3">
+          color_intensity
+        </p>
+        <input
+          type="number"
+          class="border border-gray-900 rounded-full p-3 w-96 ml-3 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-800 display-block"
+          id="color_intensity"
+          placeholder="enter the color_intensity"
+          step="10.12"
+        /><br /><br />
+        <p for="hue" class="font-bold text-xl ml-3">hue :</p>
+        <input
+          type="number"
+          id="hue"
+          class="border border-gray-900 rounded-full p-3 w-96 ml-3 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-800"
+          placeholder="enter the hue"
+          step="10.12"
+        /><br /><br />
+        <p for="od280/od315_of_diluted_wines" class="font-bold text-xl ml-3">
+          od280/od315_of_diluted_wines :
+        </p>
+        <input
+          type="number"
+          class="border border-gray-900 rounded-full p-3 w-96 ml-3 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-800"
+          id="od280/od315_of_diluted_wines"
+          placeholder="enter the od280/od315_of_diluted_wines"
+          step="10.12"
+        /><br /><br />
+      </div>
+      <div>
+        <p for="proline" class="font-bold text-xl ml-3">proline :</p>
+        <input
+          type="number"
+          id="proline"
+          placeholder="enter the proline"
+          class="border border-gray-900 rounded-full p-3 w-96 ml-3 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-800"
+          step="10.12"
+        /><br /><br />
+      </div>
+    </div>
+    <div class="flex flex-row justify-center items-center">
+      <button
+        onclick="sendData()"
+        class="text-red-900 font-bold border-2 border-red-900 p-2 rounded-2xl hover:bg-red-900 hover:text-white"
+      >
+        Send features
+      </button>
+    </div>
     <br />
     <br />
-    <p id="result"></p>
+    <div class="flex flex-row justify-center items-center">
+      <p
+        id="result"
+        class="text-red-900 font-bold border-2 border-red-900 p-2 rounded-2xl hover:bg-red-900 hover:text-white"
+      ></p>
+    </div>
   </body>
 </html>
