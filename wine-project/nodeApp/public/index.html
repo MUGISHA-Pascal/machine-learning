@@ -4,6 +4,10 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>wine project</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
+      rel="stylesheet"
+    />
     <script>
       async function sendData() {
         features = [
@@ -35,7 +39,11 @@
     </script>
   </head>
   <body>
-    <h1>Enter the features for the wine class</h1>
+    <h1
+      class="text-red-800 text-4xl font-bold border-b-4 border-red-800 pb-7 pt-6 pl-3"
+    >
+      Enter the features for the wine class
+    </h1>
     <label for="alcohol">alcohol : </label>
     <input
       type="number"
@@ -99,7 +107,7 @@
       placeholder="enter the proanthocyanins"
       step="10.12"
     /><br /><br />
-    <label for="color_intensity"></label>
+    <label for="color_intensity">color_intensity</label>
     <input
       type="number"
       id="color_intensity"
