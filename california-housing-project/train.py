@@ -9,7 +9,7 @@ california = fetch_california_housing()
 # print(california)
 data = pd.DataFrame(california.data,columns=california.feature_names)
 data["MedHouseVal"] = california.target
-# print(data.head())
+print(data.head())
 
 # print(data.isnull().sum())
 
@@ -29,5 +29,5 @@ y_pred=model.predict(x_test)
 mse=mean_squared_error(y_test,y_pred)
 r2 = r2_score(y_test,y_pred)
 
-print(f"mean squared error : {mse}")
-print(f"R-squared : {r2}")
+# print(f"mean squared error : {mse}")
+# print(f"R-squared : {r2}")

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>California housing dataset</title>
+    <script>
+      async function sendData() {
+        features = [
+          parseFloat(document.getElementById("MedInc").value),
+          parseFloat(document.getElementById("HouseAge").value),
+          parseFloat(document.getElementById("AveRooms").value),
+          parseFloat(document.getElementById("AveBedrms").value),
+          parseFloat(document.getElementById("Population").value),
+          parseFloat(document.getElementById("AveOccup").value),
+          parseFloat(document.getElementById("Latitude").value),
+          parseFloat(document.getElementById("Longitude").value),
+        ];
+        const response = await fetch("/prediction", {
+          method: "post",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ features }),
+        });
+        const result = await response.json();
+        document.getElementById("result").textContent =
+          "prediction :" + result.prediction;
+      }
+    </script>
+  </head>
+  <body>
+    <h1>Predicting the housing value in California</h1>
+    <label for="MedInc">MedInc : </label>
+    <input type="number" id="MedInc" step="1.1111" />
+    <br />
+    <br />
+    <label for="HouseAge">HouseAge : </label>
+    <input type="number" id="HouseAge" step="1.1111" />
+    <br />
+    <br />
+    <label for="AveRooms">AveRooms : </label>
+    <input type="number" id="AveRooms" step="1.1111" />
+    <br />
+    <br />
+    <label for="AveBedrms">AveBedrms : </label>
+    <input type="number" id="AveBedrms" step="1.1111" />
+    <br />
+    <br />
+    <label for="Population">Population : </label>
+    <input type="number" id="Population" step="1.1111" />
+    <br />
+    <br />
+    <label for="AveOccup">AveOccup : </label>
+    <input type="number" id="AveOccup" step="1.1111" />
+    <br />
+    <br />
+    <label for="Latitude">Latitude : </label>
+    <input type="number" id="Latitude" step="1.1111" />
+    <br />
+    <br />
+    <label for="Longitude">Longitude : </label>
+    <input type="number" id="Longitude" step="1.1111" />
+    <br />
+    <br />
+    <button onclick="sendData()">Send features</button>
+    <br /><br />
+    <p id="result"></p>
+  </body>
+</html>
