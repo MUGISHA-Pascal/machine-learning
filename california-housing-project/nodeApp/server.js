@@ -7,7 +7,7 @@ app.use(express.static("public"));
 
 app.post("/prediction", async (req, res) => {
   try {
-    const response = await axios.post("http://localhost:5000/prediction", {
+    const response = await axios.post("http://localhost:5000/predict", {
       features: req.body.features,
     });
     res.json(response.data);
