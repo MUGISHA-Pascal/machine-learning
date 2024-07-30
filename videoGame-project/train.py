@@ -4,6 +4,7 @@ from sklearn.ensemble import RandomForestRegressor
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import accuracy_score,r2_score
 import joblib
+import numpy as np
 
 data = pd.read_csv("data/vgsales.csv")
 x=data.drop(["Name","Rank","Platform","Genre","Publisher","Year"],axis=1)
@@ -18,4 +19,5 @@ y_pred = model.predict(x_test)
 accuracy=r2_score(y_test,y_pred)
 joblib.dump(model,"./model/videogame.joblib")
 
-print(f"accuracy is {accuracy}")
+# print(f"accuracy is {accuracy}")
+print(data.head())
